@@ -10,7 +10,7 @@ Starter Files + Completed solutions for the JavaScript 30 Day Challenge.
 
 ### Day 1 : 2021-01-20
 
-01 - Javascript Drum Kit
+01 - Javascript Drum Kit [Demo](https://bbumjun.github.io/Javascript30/01%20-%20JavaScript%20Drum%20Kit/)
 
 What I Learned:
 
