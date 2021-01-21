@@ -22,7 +22,7 @@ What I Learned:
   document.querySelector(`div[data-key="${event.keyCode}"]`)
   ```
 
-### Day 2 : JS + CSS Clock
+### Day 2 : JS + CSS Clock [Demo](https://bbumjun.github.io/Javascript30/02%20-%20JS%20and%20CSS%20Clock/)
 
 What I Learned
 
