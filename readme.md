@@ -22,3 +22,15 @@ What I Learned:
   document.querySelector(`div[data-key="${event.keyCode}"]`)
   ```
 
+### Day 2 : JS + CSS Clock [Demo](https://bbumjun.github.io/Javascript30/02%20-%20JS%20and%20CSS%20Clock/)
+
+What I Learned
+
+CSS
+
+- transform 속성에 rotate(value)를 줘서 element를 회전시킬 수 있음
+- transform-origin 속성값을 변경해 회전축의 위치를 변경할 수 있음
+- transition 속성에 `all 0.05s` 와 같이 주면 해당 element의 모든 css 변화를 설정해준 시간에 걸쳐서 변화하도록 할 수 있음
+
+
+
