@@ -41,4 +41,23 @@ What I Learned
 - 위 방법들을 통해서 각 element마다 필요한 핸들러 함수를 일일이 만들지 않고도 하나로 일반화할 수 있었다.
 
 
+### Day 5: Flex Panel Gallery [Demo](https://bbumjun.github.io/Javascript30/05%20-%20Flex%20Panel%20Gallery/)
 
+What I Learned
+
+- `:nth-child(n)` 이라는 pseudo class를 사용해 선택자의 n번째 element에 접근할 수 있다.
+
+  ```css
+       .panel p:nth-child(1) {
+          transform: translateY(-100%);
+        }
+  ```
+
+- element에 이벤트 핸들러로 class를 추가,제거하고자 할 때 classList객체에서  add,remove 대신 toggle 메서드를 사용하면 두가지 기능을 한번에 해결할 수 있다.
+
+- flex layout 에서 잘 몰랐던 부분에 대해서 이해했다.
+
+  - flex item에서 flex-grow , flow-shrink 속성은 display의 크기가 변할 때 각각 증가, 감소 너비의 비율을 설정할 수 있다. 본 문제에서는 이미지를 클릭했을 때 해당 이미지를 하이라이팅하기 위해 flex-grow를 조절했다.
+  - flex-basis 는 item의 기본 size설정할 수 있는데, 해당 item 은 화면을 줄여도 이 size보다는 작아지지 않는다.
+
+  
