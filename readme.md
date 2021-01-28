@@ -60,4 +60,11 @@ What I Learned
   - flex item에서 flex-grow , flow-shrink 속성은 display의 크기가 변할 때 각각 증가, 감소 너비의 비율을 설정할 수 있다. 본 문제에서는 이미지를 클릭했을 때 해당 이미지를 하이라이팅하기 위해 flex-grow를 조절했다.
   - flex-basis 는 item의 기본 size설정할 수 있는데, 해당 item 은 화면을 줄여도 이 size보다는 작아지지 않는다.
 
-  
+### Day 6: Type Ahead [Demo](https://bbumjun.github.io/Javascript30/06%20-%20Type%20Ahead)
+
+What I learned
+
+- 검색어 필터링에 필요한 정규식을 간단한 패턴을 만들어 사용하는 방법을 알았다.
+- 몇가지 플래그와 정규식 메소드의 사용방법을 공부했다.
+
+
