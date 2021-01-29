@@ -68,3 +68,14 @@ What I learned
 - 몇가지 플래그와 정규식 메소드의 사용방법을 공부했다.
 
 
+### Day 8: Fun With HTML5 Canvas [Demo](https://bbumjun.github.io/Javascript30/08%20-%20Fun%20with%20HTML5%20Canvas/)
+
+What I learned
+
+- HTML5 에 내장된 Canvas API를 사용해 마우스 이벤트에 반응해 화면에 그림을 그릴수 있다.
+
+- 변수와 함수들을 클로저 내부에서 선언해 외부에서 변수를 조작하지 않고 기능만 동작하도록 할 수 있다.
+
+  
+
+
