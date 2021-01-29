@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>HTML5 Canvas</title>
+  </head>
+  <body>
+    <canvas id="draw" width="800" height="800"></canvas>
+    <script>
+      /*
+      우선 어플리케이션의 로직을 담을 익명함수를 선언한다.
+      이렇게 함으로써 클로저를 만들 수 있고, 우리의 코드가 전역 네임스페이스를
+      오염시키는 것에 대한 걱정없이 코드를 안전하게 실행할 수 있다.
+
+      익명함수 안에 canvas HTML 요소를 참조할 변수 하나,
+      이전과 현재의 마우스 위치를 저장할 객체 하나,
+      그리고 색과 선의 두께 정보를 저장할 변수들을 각각 선언할 것이다.
+      그 후에, 이벤트핸들러로 사용될 두개의 함수를 선언하자.
+      하나는 canvas위에 그릴 함수, 하나는 마우스 위치를 참조하는 변수를
+      업데이트 할 함수이다.
+      이제 이벤트 핸들러들을 'mousemove','mouseup','mousedown','mouseout'
+      이벤트에 부착할 일만 남았다.
+
+      */
+      ;(() => {
+        const canvas = document.getElementById("draw")
+        canvas.width = window.innerWidth
+        canvas.height = window.innerHeight
+        const ctx = canvas.getContext("2d")
+        ctx.lineJoin = "round"
+        ctx.lineCap = "round"
+        const mouse = { x: 0, y: 0 },
+          last_mouse = { ...mouse }
+
+        let hue = 0,
+          increasLineWidth = true
+
+        const draw = () => {
+          ctx.strokeStyle = `hsl(${hue},100%,50%)`
+          ctx.beginPath()
+          ctx.moveTo(last_mouse.x, last_mouse.y)
+          ctx.lineTo(mouse.x, mouse.y)
+          ctx.closePath()
+          ctx.stroke()
+
+          hue >= 360 ? (hue = 0) : hue++
+          increasLineWidth ? ctx.lineWidth++ : ctx.lineWidth--
+          if (ctx.lineWidth >= 50 || ctx.lineWidth <= 1) {
+            increasLineWidth = !increasLineWidth
+          }
+        }
+        function updateMouse(event) {
+          ;[last_mouse.x, last_mouse.y, mouse.x, mouse.y] = [
+            mouse.x,
+            mouse.y,
+            event.offsetX,
+            event.offsetY,
+          ]
+        }
+
+        const mouseEventHandler = {
+          add: () => canvas.addEventListener("mousemove", draw),
+          remove: () => canvas.removeEventListener("mousemove", draw),
+        }
+
+        const events = [
+          { e: "mousemove", h: updateMouse },
+          { e: "mousedown", h: mouseEventHandler.add },
+          { e: "mouseup", h: mouseEventHandler.remove },
+          { e: "mouseout", h: mouseEventHandler.remove },
+        ]
+
+        events.forEach(({ e, h }) => {
+          canvas.addEventListener(e, h)
+        })
+      })()
+    </script>
+
+    <style>
+      html,
+      body {
+        margin: 0;
+      }
+    </style>
+  </body>
+</html>
