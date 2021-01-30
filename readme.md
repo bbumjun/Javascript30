@@ -77,5 +77,21 @@ What I learned
 - 변수와 함수들을 클로저 내부에서 선언해 외부에서 변수를 조작하지 않고 기능만 동작하도록 할 수 있다.
 
   
+### Day 9 - Dev Tools Domination
 
+What I Learned
+
+- 개발자도구에서 특정 Element에 break를 걸어  attribute의 변화 또는 subtree의 변화가 발생했을 때 break point를 발생시킨 라인을 하이라이팅 한다.
+- `console.dir(DOMElement)` 을 사용하면  element 객체가 가진 property들을 tree형태로 살펴볼 수 있다.
+
+
+
+### Day 10 - Hold Shift and Check Check Boxes [Demo](https://bbumjun.github.io/Javascript30/10%20-%20Hold%20Shift%20and%20Check%20Checkboxes/)
+
+What I Learned
+
+- 유사배열에서 배열 메서드를 사용하기 위해 Array.from 메서드를 사용할 수 있다.
+- 키보드 이벤트와 마우스 이벤트를 동시에 처리할 수 있다.
+
+  
 
