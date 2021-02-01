@@ -93,5 +93,22 @@ What I Learned
 - 유사배열에서 배열 메서드를 사용하기 위해 Array.from 메서드를 사용할 수 있다.
 - 키보드 이벤트와 마우스 이벤트를 동시에 처리해 체크박스 여러개를 한번에 체크할 수 있다.
 
+### Day 11 - Custom Video Player [demo](https://bbumjun.github.io/Javascript30/11%20-%20Custom%20Video%20Player/)
+
+What I Learned
+
+- HTML5 Video element의 동작을 위한 event, method, property 들을 배웠다. 
+  - progress bar를 실시간으로 업데이트 하기 위한 `timeupdate `이벤트
+  - video.duration : 영상 전체 길이
+  - div element의 `offsetWidth`와 event의 `offsetX` 를 사용해 재생 위치를 드래그로 이동할 수 있다.
+
+- textContext , innerText 차이
+  - 둘다 해당 element의 text 값을 반환하고 수정할 수 있다는 공통점이 있다. 차이점은 innerText는 불필요한 공백을 제거하여 반환하고, textContext는 텍스트를 그대로 반환한다.
+
+
+
+
+
+
   
 
