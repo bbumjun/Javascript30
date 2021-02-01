@@ -27,6 +27,7 @@
         const matchWithSecretCode = (key) => {
           if (key == secretCode) {
             console.log("That's right!")
+            document.querySelector("h1").textContent = "Codes never lie."
             cornify_add()
             keys = []
           }
