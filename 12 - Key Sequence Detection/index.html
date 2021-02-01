@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Key Detection</title>
+    <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
+    <style>
+      body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      h1 {
+        text-align: center;
+        font-size: 100px;
+        color: hotpink;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Codes never [. . .].</h1>
+    <script>
+      ;(() => {
+        let secretCode = "lie"
+        let keys = []
+        const matchWithSecretCode = (key) => {
+          if (key == secretCode) {
+            console.log("That's right!")
+            cornify_add()
+            keys = []
+          }
+        }
+        const addInput = (e) => {
+          if (e.keyCode >= 65 && e.keyCode <= 90) {
+            keys.push(e.key)
+            if (keys.length > secretCode.length) keys.shift()
+            matchWithSecretCode(keys.join(""))
+          }
+        }
+        window.addEventListener("keydown", addInput)
+      })()
+    </script>
+  </body>
+</html>
