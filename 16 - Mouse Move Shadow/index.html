@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mouse Shadow</title>
+  </head>
+  <body>
+    <div class="hero">
+      <h1 contenteditable>🔥PARTY TIME!</h1>
+    </div>
+
+    <style>
+      html {
+        color: black;
+        font-family: sans-serif;
+      }
+
+      body {
+        margin: 0;
+        background-image: url(https://source.unsplash.com/kNxQv2d2pGI/1600x800);
+      }
+
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: black;
+      }
+
+      h1 {
+        font-size: 100px;
+      }
+    </style>
+
+    <script>
+      const text = document.querySelector("h1")
+      const container = document.querySelector(".hero")
+
+      const mouseShadow = (e) => {
+        console.log(e.clientX, e.clientY)
+        const x = (e.clientX - text.offsetLeft - text.offsetWidth / 2) * 0.4
+        const y = (e.clientY - text.offsetTop - text.offsetHeight / 2) * 0.4
+        text.style.textShadow = `
+        ${x}px ${y}px 0 rgba(255,0,255,0.7),
+        ${-x}px ${y}px 0 rgba(0,255,255,0.7),
+        ${x}px ${-y}px 0 rgba(0,255,0,0.7),
+        ${-x}px ${-y}px 0 rgba(0,0,255,0.7)
+        `
+      }
+      window.addEventListener("mousemove", mouseShadow)
+    </script>
+  </body>
+</html>
