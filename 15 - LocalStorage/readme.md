@@ -1,4 +1,4 @@
-## Day 15 - LocalStorage and Event Delegation
+## Day 15 - LocalStorage and Event Delegation [Demo](https://bbumjun.github.io/Javascript30/15%20-%20LocalStorage/)
 
 ### What I Learned
 
