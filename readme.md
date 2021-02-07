@@ -140,7 +140,7 @@ What I Learned
 
 웹페이지가 새로 실행될때마다 호출되어야 하는 populateList함수를 document.onload에 전달한다.
 
-## Day 16 Mouse Move Shadow [Demo](https://bbumjun.github.io/Javascript30/16 - Mouse Move Shadow)
+## Day 16 Mouse Move Shadow [Demo](https://bbumjun.github.io/Javascript30/16%20-%20Mouse%20Move%20Shadow/)
 
 **What I Learned**
 
@@ -152,7 +152,7 @@ What I Learned
 
 CSS `textShadow `속성 : `text-shadow: 10*px* 10*px* 0 rgba(0,0,0,1);` 왼쪽부터 x축 거리, y축 거리, blur 세기, 그림자 색
 
-## Day 17 Sort Without Articles [Demo](https://bbumjun.github.io/Javascript30/17 - Sort Without Articles)
+## Day 17 Sort Without Articles [Demo](https://bbumjun.github.io/Javascript30/17%20-%20Sort%20Without%20Articles/)
 
 **What I Learned**
 
@@ -162,7 +162,7 @@ CSS `textShadow `속성 : `text-shadow: 10*px* 10*px* 0 rgba(0,0,0,1);` 왼쪽�
 
 replace 메서드에 의해 관사가 제거된 string끼리 비교하는 함수를 sort 의 compare 함수로 삽입한다.
 
-## Day 19 Webcam Fun [Demo](https://bbumjun.github.io/Javascript30/19 - Webcam Fun/)
+## Day 19 Webcam Fun [Demo](https://bbumjun.github.io/Javascript30/19%20-%20Webcam%20Fun/)
 
 What I Learned
 
