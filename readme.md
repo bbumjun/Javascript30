@@ -107,7 +107,93 @@ What I Learned
 
 
 
+### Day 13 - Slide in on Scroll [Demo](https://bbumjun.github.io/Javascript30/13%20-%20Slide%20in%20on%20Scroll/)
 
+**What I Learned**
+
+스크롤 이동에 따라 화면 안에 이미지가 들어오거나 벗어나면 active class를 추가/제거 하는 로직을 구현하는 과제이다. 마우스 휠의 한번의 움직임으로 수백번의 스크롤 이벤트가 발생하기 때문에 매번 이벤트 핸들러가 실행되면 성능이 엄청나게 저하될 수 있다.
+
+따라서 본문에서 잦은 이벤트 핸들러의 실행을 방지하기 위한 디바운스 함수가 구현되어 있다. 이벤트에 의한 함수 호출을 제어하는 기술은 디바운스, 스로틀링이 대표적이다. 둘의 차이점은 디바운스는 이벤트가 발생한 시점이후 일정시간 동안 같은 이벤트가 다시 발생하지 않을 때 해당 이벤트 핸들러가 호출 된다. 반면 스로틀링은 정해진 주기안에 이벤트 핸들러의 실행을 1번으로 제한하는 것이다.
+
+이미지가 화면 안에 들어왔는지 판단하는 로직은 3가지 변수를 정의해서 구현했다. 웹페이지의 전제 height 중 현재 보여지는 화면의 top, bottom의 위치, 그리고 각 이미지의 중심의 위치이다. window 객체의 `scrollY`(현재 스크롤의 위치), `innerHeight`(현재 창의 높이) 속성과 이미지의 `offsetTop`(부모요소의 top과 현재 요소의 top 사이 거리), `clientHeight`(요소의 높이)를 이용해 세 변수 값을 계산했다.
+
+## Day 15 - LocalStorage and Event Delegation [Demo](https://bbumjun.github.io/Javascript30/15%20-%20LocalStorage/)
+
+### What I Learned
+
+이번 과제는 form요소로 사용자에게 음식을 입력받아 화면에 나타내고, `localStorage` 를 사용해 웹페이지에 데이터를 유지하는 것이다.
+
+`addItem`, `populateList`, `toggleDone` 이 3개의 함수를 정의해 로직을 구현했다. **addItem(event)**
+
+- `event.preventDefault()`를 사용해 form submit 이벤트의 새로고침을 취소함
+- localStorage에 `JSON.stringfy()`에 의해 문자열로 변환된 item 객체 배열을 저장함
+- `formElement.reset()` 으로 form 내부의 모든 element의 value를 초기화
+
+**populateList**
+
+- `items instanceof Array` 를 사용해 전달받은 파라미터인 items의 Array 프로토타입이 items 객체의 프로토타입 체인에 존재하는지 확인한다.
+- map 함수를 사용해 배열을 적절한 형태의 html 로 itemList element에 삽입한다.
+
+**toggleDone**
+
+- 이벤트를 위임받았기 때문에 실제 해당되는 element를 찾기 위해 `e.target.matches(selector)` 함수를 사용한다
+
+웹페이지가 새로 실행될때마다 호출되어야 하는 populateList함수를 document.onload에 전달한다.
+
+## Day 16 Mouse Move Shadow [Demo](https://bbumjun.github.io/Javascript30/16 - Mouse Move Shadow)
+
+**What I Learned**
+
+마우스의 위치에 따라 텍스트에 동적인 그림자 효과를 주는 과제이다. 텍스트의 중앙을 기준으로 잡고 마우스 좌표와의 거리비율을 계산해 해결할 수 있다. element의 위치,크기를 의미하는 속성을 알아야한다.
+
+`offsetTop, offsetLeft` : 현재 요소의 border와 부모노드의 border 사이의 가로,세로 거리
+
+`offsetWidth, offsetHeight` : 현재요소의 너비, 높이 값
+
+CSS `textShadow `속성 : `text-shadow: 10*px* 10*px* 0 rgba(0,0,0,1);` 왼쪽부터 x축 거리, y축 거리, blur 세기, 그림자 색
+
+## Day 17 Sort Without Articles [Demo](https://bbumjun.github.io/Javascript30/17 - Sort Without Articles)
+
+**What I Learned**
+
+주어진 밴드리스트를 "A, An, The" 관사를 제외하고 알파벳순으로 정렬하고 unordered list에 삽입하는 과제다.
+
+맨 앞에 붙어있는 관사를 추출하는 정규식은 다음과 같이 만들 수 있다. `RegExp("^(a |the |an )", "i")`
+
+replace 메서드에 의해 관사가 제거된 string끼리 비교하는 함수를 sort 의 compare 함수로 삽입한다.
+
+## Day 19 Webcam Fun [Demo](https://bbumjun.github.io/Javascript30/19 - Webcam Fun/)
+
+What I Learned
+
+**video**
+
+비디오 스트림 데이터는 navigator의 mediaDevices 객체에서 얻을 수 있다. getUserMedia를 호출해 유저에게 권한을 얻음으로써 비디오장치에 접근할 수 있다.
+
+```
+navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+```
+
+유저의 권한을 얻어 프로미스에게 stream 객체를 받으면 video의 srcObject 속성에 넣어 화면에 연결할 수 있다.
+
+```
+    .then((stream) => {
+      video.srcObject = stream
+      video.play()
+    })
+```
+
+**pixels**
+
+브라우저는 이미지를 거대한 2중배열의 rgba 값을 가진 일련의 픽셀로 해석한다. 즉 가로가 100픽셀인 이미지 파일이라면 배열의 한 행에는 400개의 값이 r,g,b,a 순으로 들어있는 것이다.
+
+**download attribute**
+
+a 태그에 download 라는 속성은 클릭했을때 link가 가리키는 파일을 다운로드 할 수 있게 해준다.
+
+**insertBefore()**
+
+DOM에서 부모노드를 기준으로 원하는 위치에 노드를 삽입할 수 있다. 기존에 DOM에 부착되어 있던 노드라면 자동으로 삭제되고 이동된다.
 
 
   
