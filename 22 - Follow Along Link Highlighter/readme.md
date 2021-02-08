@@ -13,6 +13,6 @@ What I Learned
 
 offsetTop, clientTop, scrollTop 등 요소의 기하적인 속성이 많이 헷갈렸는데 다음 자료로 머리속에 정리할 수 있게 되었다.
 
-![image-20210209021225617](C:\Users\bumju\AppData\Roaming\Typora\typora-user-images\image-20210209021225617.png)
+![offsetTop clientTOp 이미지 검색결과](https://ko.javascript.info/article/size-and-scroll/metric-css.svg)
 
 [이미지출처](https://ko.javascript.info/size-and-scroll)
