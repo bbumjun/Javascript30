@@ -195,6 +195,39 @@ a 태그에 download 라는 속성은 클릭했을때 link가 가리키는 파�
 
 DOM에서 부모노드를 기준으로 원하는 위치에 노드를 삽입할 수 있다. 기존에 DOM에 부착되어 있던 노드라면 자동으로 삭제되고 이동된다.
 
+## Day 20 - Native Speech Recognition [Demo](https://bbumjun.github.io/Javascript30/20%20-%20Speech%20Detection/)
+
+What I Learned
+
+**SpeechRecognition**
+
+크롬 브라우저에서는 음성인식 api인 window.SpeechRecognition을 지원한다. 
+
+`recognition.interimResults = true` 는 speaking 도중에 음성인식 결과를 계속 반환할지 결정하는 속성이다.
+
+```javascript
+  recognition.addEventListener("result", (e) => {
+        const transcript = Array.from(e.results)
+          .map((result) => result[0])
+          .map((result) => result.transcript)
+          .join("")
+        if (e.results[0].isFinal) {
+          p = document.createElement("p")
+          p.textContent = transcript
+          words.appendChild(p)
+        }
+      })
+  recognition.addEventListener("end", recognition.start)
+  recognition.start()
+```
+
+result 이벤트는 음성인식의 결과가 생성될 때 발생하는 이벤트이다.
+
+isFinal속성에서 단어가 발화가 끝난 문장의 마지막 단어인지 체크할 수 있다.
+
+end 이벤트 발생시 start 메서드를 실행해 음성을 계속 인식할 수 있도록 할 수 있다.
+
+
 
   
 
